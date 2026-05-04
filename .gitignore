@@ -3,6 +3,9 @@
 *.xls
 *.pdf
 
+# Archive folder contains sensitive files
+archive/
+
 # Temporary files
 *.py
 *.json

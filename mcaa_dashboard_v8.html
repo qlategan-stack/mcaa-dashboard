@@ -45,6 +45,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
 .page-hdr h2{font-family:var(--font-display);font-size:30px;font-weight:900;letter-spacing:-0.5px;color:var(--ink);}
 .page-hdr p{font-family:var(--font-mono);font-size:10px;color:var(--ink4);margin-top:4px;}
 .page-hdr-badge{font-family:var(--font-mono);font-size:9px;padding:4px 10px;border-radius:3px;border:1px solid var(--paper3);color:var(--ink3);}
+.period-badge{font-family:var(--font-mono);font-size:10px;padding:6px 14px;border-radius:3px;background:var(--blue-l);border:1px solid var(--blue-m);color:var(--blue);font-weight:600;letter-spacing:0.06em;}
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;}
 .kpi-row.cols3{grid-template-columns:repeat(3,1fr);}
 .kpi-row.cols2{grid-template-columns:repeat(2,1fr);}
@@ -200,7 +201,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
             <div class="lr"><span class="sw" style="background:#b91c1c"></span>Not paying<span class="lr-pct" style="color:#b91c1c">85.6%</span></div>
           </div>
         </div>
-        <div class="insight">76 of 528 residents paid in April. Mar-26 saw 96 payers — April's EFT count is lower as lump annual payments are less common mid-year.</div>
+        <div class="insight">76 of 528 residents paid in April. Mar-26 saw a higher EFT count driven by annual payment activity; April reflects the steady monthly D/O base only.</div>
       </div>
     </div>
     <div class="card">
@@ -213,7 +214,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
           </div>
           <div class="leg" id="plots-paying-leg"></div>
         </div>
-        <div class="insight">Plots where at least one resident has paid in Apr-26. Multiple residents can share a plot number.</div>
+        <div class="insight">Plots where at least one resident paid in Apr-26. Multiple residents can share a plot number.</div>
       </div>
     </div>
     <div class="card">
@@ -222,14 +223,14 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
         <div class="donut-wrap">
           <div class="dw">
             <canvas id="d3" width="110" height="110"></canvas>
-            <div class="dlbl"><div class="dv">10</div><div class="ds">captains</div></div>
+            <div class="dlbl"><div class="dv">11</div><div class="ds">captains</div></div>
           </div>
           <div class="leg">
-            <div class="lr"><span class="sw" style="background:#15803d"></span>Assigned<span class="lr-pct" style="color:#15803d">53%</span></div>
-            <div class="lr"><span class="sw" style="background:#b91c1c"></span>Vacant<span class="lr-pct" style="color:#b91c1c">47%</span></div>
+            <div class="lr"><span class="sw" style="background:#15803d"></span>Assigned<span class="lr-pct" style="color:#15803d">61%</span></div>
+            <div class="lr"><span class="sw" style="background:#b91c1c"></span>Vacant<span class="lr-pct" style="color:#b91c1c">39%</span></div>
           </div>
         </div>
-        <div class="insight">10 of 19 streets have an assigned Street Captain. 9 streets remain without a captain for resident follow-up.</div>
+        <div class="insight">11 of 18 streets in the captain register have an assigned Street Captain. 7 streets remain without a captain for resident follow-up.</div>
       </div>
     </div>
   </div>
@@ -246,7 +247,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
 <div id="tab-rv" class="panel">
   <div class="page-hdr">
     <div><h2>Revenue</h2><p>Membership levy collections — DO and EFT</p></div>
-    <span class="page-hdr-badge">Apr-26 only</span>
+    <span class="period-badge">APRIL 2026 · 01–30 Apr 2026</span>
   </div>
 
   <div class="kpi-row cols3">
@@ -258,12 +259,12 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
     <div class="kpi kg">
       <div class="kl">EFT Total</div>
       <div class="kv clg">R5,180</div>
-      <div class="ks">18 individual EFT payments matched</div>
+      <div class="ks">19 individual EFT payments matched · Apr-26</div>
     </div>
     <div class="kpi ka">
       <div class="kl">Total Membership Revenue</div>
       <div class="kv cla">R24,805</div>
-      <div class="ks">Combined DO + EFT · excl. camera</div>
+      <div class="ks">Combined DO + EFT · excl. camera · April 2026</div>
     </div>
   </div>
 
@@ -275,7 +276,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
       </div>
     </div>
     <div class="card">
-      <div class="ch"><h3>Monthly Revenue Breakdown</h3><span class="ch-sub">Stacked DO + EFT</span></div>
+      <div class="ch"><h3>Monthly Revenue Breakdown</h3><span class="ch-sub">Stacked DO + EFT · Mar-25 to Apr-26</span></div>
       <div class="cb" style="height:200px">
         <div class="chart-legend">
           <span class="cl-item"><span class="cl-dot" style="background:rgba(29,78,216,0.8)"></span>DO</span>
@@ -289,11 +290,11 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
 
   <div class="card-row cols2">
     <div class="card">
-      <div class="ch"><h3>DO Payer Count per Month</h3></div>
+      <div class="ch"><h3>DO Payer Count per Month</h3><span class="ch-sub">April 2026 = 60 members</span></div>
       <div class="cb" style="height:180px"><canvas id="rv-do-count"></canvas></div>
     </div>
     <div class="card">
-      <div class="ch"><h3>EFT Payer Count per Month</h3></div>
+      <div class="ch"><h3>EFT Payer Count per Month</h3><span class="ch-sub">April 2026 = 19 members</span></div>
       <div class="cb" style="height:180px"><canvas id="rv-eft-count"></canvas></div>
     </div>
   </div>
@@ -310,7 +311,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
     <div class="kpi kp">
       <div class="kl">Member Camera Payments</div>
       <div class="kv clp">R8,850</div>
-      <div class="ks">8 individual members</div>
+      <div class="ks">8 individual members · Apr-26</div>
     </div>
     <div class="kpi kb">
       <div class="kl">Sponsor Payments</div>
@@ -320,12 +321,12 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
     <div class="kpi kg">
       <div class="kl">Total Camera Apr-26</div>
       <div class="kv clg">R10,350</div>
-      <div class="ks">Combined members + sponsors</div>
+      <div class="ks">Combined members + sponsors · April 2026</div>
     </div>
   </div>
 
   <div class="card">
-    <div class="ch"><h3>Member Camera Payments</h3><span class="ch-sub">Apr-26 · 8 members</span></div>
+    <div class="ch"><h3>Member Camera Payments</h3><span class="ch-sub">Apr-26 · 8 members · sourced from Bank Statement</span></div>
     <div class="cb">
       <div class="cam-grid" id="cam-members-grid"></div>
     </div>
@@ -348,20 +349,20 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
 <div id="tab-st" class="panel">
   <div class="page-hdr">
     <div><h2>Streets</h2><p>Payment rates by street — April 2026</p></div>
-    <span class="page-hdr-badge">31 streets</span>
+    <span class="page-hdr-badge">Sorted: highest rate to lowest</span>
   </div>
 
   <div class="card">
-    <div class="ch"><h3>Street Payment Summary</h3><span class="ch-sub">Sorted by residents (descending)</span></div>
+    <div class="ch"><h3>Street Payment Summary</h3><span class="ch-sub">DO and EFT amounts · April 2026 · sorted by collection rate</span></div>
     <div class="cb" style="padding:0">
       <table class="st-table">
         <thead>
           <tr>
             <th>Street</th>
-            <th>Plots</th>
             <th>Residents</th>
-            <th style="color:#1d4ed8">DO</th>
-            <th style="color:#15803d">EFT</th>
+            <th style="color:#1d4ed8">DO (R)</th>
+            <th style="color:#15803d">EFT (R)</th>
+            <th>Paying</th>
             <th>Not paying</th>
             <th>Rate</th>
             <th>Bar</th>
@@ -376,30 +377,30 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
 <!-- ══ CAPTAINS ══ -->
 <div id="tab-ca" class="panel">
   <div class="page-hdr">
-    <div><h2>Captains</h2><p>Street captain status and collection performance</p></div>
-    <span class="page-hdr-badge">10 assigned · 9 vacant</span>
+    <div><h2>Captains</h2><p>Street captain status and collection performance — April 2026</p></div>
+    <span class="page-hdr-badge">11 assigned · 7 vacant · 18 streets</span>
   </div>
 
   <div class="kpi-row cols3">
     <div class="kpi kg">
       <div class="kl">Streets with Captain</div>
-      <div class="kv clg">10</div>
+      <div class="kv clg">11</div>
       <div class="ks">Assigned street captains</div>
     </div>
     <div class="kpi kr">
       <div class="kl">Streets Vacant</div>
-      <div class="kv clr">9</div>
+      <div class="kv clr">7</div>
       <div class="ks">No captain assigned — recruitment needed</div>
     </div>
     <div class="kpi kb">
       <div class="kl">Total Streets</div>
-      <div class="kv clb">19</div>
+      <div class="kv clb">18</div>
       <div class="ks">From Street Captains register</div>
     </div>
   </div>
 
   <div class="card">
-    <div class="ch"><h3>Captain Performance by Street</h3><span class="ch-sub">Apr-26 paying rate</span></div>
+    <div class="ch"><h3>Captain Performance by Street</h3><span class="ch-sub">Apr-26 actual paying rate · sorted highest to lowest</span></div>
     <div class="cb">
       <div class="cap-grid" id="captains-grid"></div>
     </div>
@@ -417,22 +418,22 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
     <div class="kpi kr">
       <div class="kl">Salary</div>
       <div class="kv clr">R12,506</div>
-      <div class="ks">Mengo Sibanda + R6 fee</div>
+      <div class="ks">Mengo Sibanda + R6 bank fee</div>
     </div>
     <div class="kpi kp">
       <div class="kl">Camera Purchase</div>
       <div class="kv clp">R14,502</div>
-      <div class="ks">Tary Design + R2 fee</div>
+      <div class="ks">Tary Design camera equipment + R2 fee</div>
     </div>
     <div class="kpi ka">
       <div class="kl">Maintenance</div>
       <div class="kv cla">R4,756</div>
-      <div class="ks">Luka fence repair + R6 fee</div>
+      <div class="ks">Luka fence repair + R6 bank fee</div>
     </div>
     <div class="kpi kb">
       <div class="kl">Bank Fees &amp; Other</div>
       <div class="kv clb">R4,469</div>
-      <div class="ks">CAPITEC DO fee + Red Hot Bit + Month fee</div>
+      <div class="ks">DO fee + Red Hot Bit + Month fee + reversals</div>
     </div>
   </div>
 
@@ -463,14 +464,14 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
       <div class="ks">R41,560.29 computed = statement closing</div>
     </div>
     <div class="kpi ka">
-      <div class="kl">Unmatched Credits</div>
-      <div class="kv cla">0</div>
-      <div class="ks">All credits matched or classified</div>
+      <div class="kl">Unmatched EFT Refs</div>
+      <div class="kv cla">2</div>
+      <div class="ks">EFT references not matching member database</div>
     </div>
     <div class="kpi kb">
-      <div class="kl">Missing Plot Numbers</div>
-      <div class="kv clb">6</div>
-      <div class="ks">Members without plot assigned</div>
+      <div class="kl">Unmatched Camera</div>
+      <div class="kv clb">2</div>
+      <div class="ks">Camera payers not found in Comprehensive list</div>
     </div>
   </div>
 
@@ -482,19 +483,20 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
   </div>
 
   <div class="card" style="margin-top:20px">
-    <div class="ch"><h3>Reconciliation Summary</h3></div>
+    <div class="ch"><h3>Reconciliation Summary — April 2026</h3></div>
     <div class="cb">
       <table class="exp-table">
         <tbody>
-          <tr><td style="font-weight:600">Opening balance</td><td style="text-align:right">R 42,267.90</td></tr>
-          <tr><td>DO batch total</td><td style="text-align:right">R 19,995.00</td></tr>
-          <tr><td>EFT membership total</td><td style="text-align:right">R 5,180.00</td></tr>
-          <tr><td>Camera members</td><td style="text-align:right">R 8,850.00</td></tr>
-          <tr><td>Camera sponsors</td><td style="text-align:right">R 1,500.00</td></tr>
+          <tr><td style="font-weight:600">Opening balance (1 Apr 2026)</td><td style="text-align:right">R 42,267.90</td></tr>
+          <tr><td>DO batch total (actual from statement)</td><td style="text-align:right">R 19,995.00</td></tr>
+          <tr><td>EFT membership total (19 members)</td><td style="text-align:right">R 5,180.00</td></tr>
+          <tr><td>Camera members (8 members)</td><td style="text-align:right">R 8,850.00</td></tr>
+          <tr><td>Camera sponsors (2 sponsors)</td><td style="text-align:right">R 1,500.00</td></tr>
           <tr><td style="font-weight:600">Total credits</td><td style="text-align:right;font-weight:600">R 35,525.00</td></tr>
           <tr><td>Total debits + fees</td><td style="text-align:right;color:var(--red)">−R 36,232.61</td></tr>
           <tr><td style="font-weight:600">Closing balance (computed)</td><td style="text-align:right;font-weight:600;color:var(--green)">R 41,560.29</td></tr>
-          <tr><td style="color:var(--green)">Balance check</td><td style="text-align:right;color:var(--green);font-weight:600">PASS ✓</td></tr>
+          <tr><td style="color:var(--green)">Statement closing balance</td><td style="text-align:right;color:var(--green)">R 41,560.29</td></tr>
+          <tr><td style="color:var(--green);font-weight:600">Balance check</td><td style="text-align:right;color:var(--green);font-weight:600">PASS ✓</td></tr>
         </tbody>
       </table>
     </div>
@@ -518,19 +520,21 @@ const tk={font:{size:10,family:'IBM Plex Mono,monospace'},color:'#999'};
 const gr={color:'rgba(0,0,0,0.05)'};
 
 // ── Data ─────────────────────────────────────────────────────────────────────
+// Historical months Mar-25 to Feb-26 are estimates; Mar-26 and Apr-26 are from workbook
 const SM = ['Mar-25','Apr-25','May-25','Jun-25','Jul-25','Aug-25','Sep-25','Oct-25','Nov-25','Dec-25','Jan-26','Feb-26','Mar-26','Apr-26'];
 const doT  = [18560,14250,13800,12900,13400,12700,13100,12800,13200,11800,14200,18583,19625,19625];
 const eftT = [12400,8200,7600,6800,7200,6400,7100,6600,6900,5800,7800,8790,20320,5180];
 
+// Camera — April 2026 only (sourced from Bank Statement Apr-26 sheet)
 const camMembers = [
-  {name:'Leo van Niel',     street:'Eloff Street',    plot:'51', amount:3500},
-  {name:'S. Long',          street:'Blignaut Street', plot:'—',  amount:2000},
-  {name:'Richard Shearer',  street:'Second Avenue',   plot:'40', amount:1000},
-  {name:'M. Thompson',      street:'Green Road',      plot:'37', amount:500},
-  {name:"J. O'Shea",        street:'Unresolved',      plot:'—',  amount:500},
-  {name:'Jimmy Gama',       street:'Unresolved',      plot:'—',  amount:500},
-  {name:'J. Owens',         street:'Hillside Road',   plot:'—',  amount:500},
-  {name:'Terry Shapiro',    street:'Danie Theron',    plot:'82', amount:350},
+  {name:'Leo van Niel',         street:'Eloff Street',    plot:'51',  amount:3500},
+  {name:'Ian Long (S. Long)',   street:'Blignaut Street', plot:'10',  amount:2000},
+  {name:'Richard Shearer',      street:'Second Avenue',   plot:'40',  amount:1000},
+  {name:'Mark Thompson',        street:'Green Road',      plot:'37',  amount:500},
+  {name:"J. O'Shea",            street:'Unresolved',      plot:'—',   amount:500},
+  {name:'Jimmy Gama',           street:'Unresolved',      plot:'—',   amount:500},
+  {name:'James Owens',          street:'Golf Course Road',plot:'60',  amount:500},
+  {name:'Terry Shapiro',        street:'Danie Theron',    plot:'82',  amount:350},
 ];
 const camSponsors = [
   {name:'Fifth Street',  amount:1000},
@@ -538,73 +542,73 @@ const camSponsors = [
 ];
 
 const expenses = [
-  {date:'01/04/2026', ref:'CAPITEC B MCA1 04-26',                  cat:'Bank fee',      amount:440.61, notes:'DO service charge'},
-  {date:'02/04/2026', ref:'Red Hot Bit Consultants MCAA',          cat:'Other',         amount:3458.00, notes:'Outgoing EFT + R2 fee'},
-  {date:'14/04/2026', ref:'TARY DESIGN MCAA',                      cat:'Camera purchase',amount:14502.00,notes:'Camera equipment + R2 fee'},
-  {date:'16/04/2026', ref:'001 UNPAIDS/WEIERINGS CAPITEC',         cat:'Reversal',      amount:170.00, notes:'Unpaid DO reversed — R170'},
-  {date:'27/04/2026', ref:'Mengo Sibanda MCAA',                    cat:'Salary',        amount:12506.00,notes:'Monthly salary + R6 fee'},
-  {date:'27/04/2026', ref:'LUKA MCAA FENCE',                       cat:'Maintenance',   amount:4756.00, notes:'Fence repair + R6 fee'},
-  {date:'29/04/2026', ref:'001 UNPAIDS/WEIERINGS DISC',            cat:'Reversal',      amount:350.00, notes:'Unpaid DO reversed — R350'},
-  {date:'30/04/2026', ref:'Month S/Fee',                           cat:'Bank fee',      amount:50.00,  notes:'Monthly account fee'},
+  {date:'01/04/2026', ref:'CAPITEC B MCA1 04-26',             cat:'Bank fee',       amount:440.61,  notes:'DO service charge'},
+  {date:'02/04/2026', ref:'Red Hot Bit Consultants MCAA',     cat:'Other',          amount:3458.00, notes:'Unclassified outgoing — verify with admin'},
+  {date:'14/04/2026', ref:'TARY DESIGN MCAA',                 cat:'Camera purchase',amount:14502.00,notes:'Camera equipment — Tary Design + R2 fee'},
+  {date:'16/04/2026', ref:'001 UNPAIDS/WEIERINGS CAPITEC',    cat:'Reversal',       amount:170.00,  notes:'Unpaid DO reversed — R170'},
+  {date:'27/04/2026', ref:'Mengo Sibanda MCAA',               cat:'Salary',         amount:12506.00,notes:'Monthly salary — Mengo Sibanda + R6 fee'},
+  {date:'27/04/2026', ref:'LUKA MCAA FENCE',                  cat:'Maintenance',    amount:4756.00, notes:'Fence repair — Luka + R6 fee'},
+  {date:'29/04/2026', ref:'001 UNPAIDS/WEIERINGS DISC',       cat:'Reversal',       amount:350.00,  notes:'Unpaid DO reversed — R350'},
+  {date:'30/04/2026', ref:'Month S/Fee',                      cat:'Bank fee',       amount:50.00,   notes:'Monthly account fee'},
 ];
 
+// Streets — sorted by rate (highest to lowest), from MCAA_Reconciled.xlsx Apr-26 columns
+const streetsData = [
+  {street:'Ohenimuri',              residents:2,  paying:1,  not_paying:1,  do_total:350,  eft_total:0,    rate:50.0},
+  {street:'Blignaut Street',        residents:8,  paying:3,  not_paying:5,  do_total:700,  eft_total:350,  rate:37.5},
+  {street:'Eloff Street',           residents:23, paying:7,  not_paying:16, do_total:1673, eft_total:520,  rate:30.4},
+  {street:'Centre Road',            residents:10, paying:3,  not_paying:7,  do_total:900,  eft_total:0,    rate:30.0},
+  {street:'First Avenue',           residents:42, paying:11, not_paying:31, do_total:3176, eft_total:1050, rate:26.2},
+  {street:'Fifth Street',           residents:32, paying:6,  not_paying:26, do_total:1875, eft_total:350,  rate:18.8},
+  {street:'Golf Course Road',       residents:62, paying:11, not_paying:51, do_total:2563, eft_total:1040, rate:17.7},
+  {street:'De Wet Street',          residents:30, paying:5,  not_paying:25, do_total:1063, eft_total:450,  rate:16.7},
+  {street:'Nico Pelser/Fourth St.', residents:24, paying:4,  not_paying:20, do_total:1540, eft_total:0,    rate:16.7},
+  {street:'Third Ave.',             residents:15, paying:2,  not_paying:13, do_total:550,  eft_total:0,    rate:13.3},
+  {street:'Green/Angle Road',       residents:23, paying:3,  not_paying:20, do_total:482,  eft_total:350,  rate:13.0},
+  {street:'Nel Street',             residents:31, paying:4,  not_paying:27, do_total:1300, eft_total:0,    rate:12.9},
+  {street:'Eeufees Street',         residents:26, paying:3,  not_paying:23, do_total:700,  eft_total:370,  rate:11.5},
+  {street:'Hillside Road',          residents:44, paying:5,  not_paying:39, do_total:1383, eft_total:0,    rate:11.4},
+  {street:'Road No 7',              residents:57, paying:6,  not_paying:51, do_total:1170, eft_total:500,  rate:10.5},
+  {street:'Second Avenue',          residents:34, paying:2,  not_paying:32, do_total:200,  eft_total:200,  rate:5.9},
+  {street:'Voortrekker Street',     residents:13, paying:1,  not_paying:12, do_total:350,  eft_total:0,    rate:7.7},
+  {street:'Orchard Road',           residents:25, paying:0,  not_paying:25, do_total:0,    eft_total:0,    rate:0.0},
+  {street:'Danie Theron',           residents:14, paying:0,  not_paying:14, do_total:0,    eft_total:0,    rate:0.0},
+  {street:'Hugenote Street',        residents:10, paying:0,  not_paying:10, do_total:0,    eft_total:0,    rate:0.0},
+  {street:'Road No 8',              residents:8,  paying:0,  not_paying:8,  do_total:0,    eft_total:0,    rate:0.0},
+];
+
+// Captains — captain names from Street Captains sheet; paying rates from Apr-26 workbook
+// Sorted by rate (highest to lowest), then alphabetically
 const captains = [
-  {street:'Blignaut Street',      captain:'',                ratio:'4 of 8'},
-  {street:'De Wet Street',        captain:'Richard Bentheim',ratio:'7 of 17'},
-  {street:'Eloff Street',         captain:'',                ratio:'7 of 19'},
-  {street:'Road No 8',            captain:'',                ratio:'1 of 5'},
-  {street:'Eeufees Street',       captain:'Rolf',            ratio:'2 of 11'},
-  {street:'Fifth Street',         captain:'Thulani Timile',  ratio:'5 of 21'},
-  {street:'First Avenue',         captain:'',                ratio:'9 of 30'},
-  {street:'Golf Course Road',     captain:'Kevin',           ratio:'9 of 26'},
-  {street:'Green/Angle Road',     captain:'Mark Thompson',   ratio:'4 of 14'},
-  {street:'Hillside Road',        captain:'James Owens',     ratio:'5 of 27'},
-  {street:'Hugenote Street',      captain:'',                ratio:'0 of 12'},
-  {street:'Nel Street',           captain:'Cliff Webb',      ratio:'4 of 16'},
-  {street:'Nico Pelser/Fourth St',captain:'Paul Lottreaux',  ratio:'3 of 26'},
-  {street:'Orchard Road',         captain:'Anton',           ratio:'1 of 19'},
-  {street:'Third Ave.',           captain:'Chris Leeson',    ratio:'1 of 14'},
-  {street:'Second Avenue',        captain:'',                ratio:'2 of 18'},
-  {street:'Road No 7',            captain:'Zama Hlongwane',  ratio:'3 of 17'},
-  {street:'Voortrekker Street',   captain:'',                ratio:'1 of 13'},
+  {street:'Blignaut Street',        captain:'',               ratio:'3 of 8'},
+  {street:'Eloff Street',           captain:'',               ratio:'7 of 23'},
+  {street:'First Avenue',           captain:'',               ratio:'11 of 42'},
+  {street:'Fifth Street',           captain:'Thulani Timile', ratio:'6 of 32'},
+  {street:'Golf Course Road',       captain:'Kevin',          ratio:'11 of 62'},
+  {street:'De Wet Street',          captain:'Richard Bentheim',ratio:'5 of 30'},
+  {street:'Nico Pelser/Fourth St.', captain:'Paul Lottreaux', ratio:'4 of 24'},
+  {street:'Centre Road',            captain:'',               ratio:'3 of 10'},
+  {street:'Third Ave.',             captain:'Chris Leeson',   ratio:'2 of 15'},
+  {street:'Green/Angle Road',       captain:'Mark Thompson',  ratio:'3 of 23'},
+  {street:'Nel Street',             captain:'Cliff Webb',     ratio:'4 of 31'},
+  {street:'Eeufees Street',         captain:'Rolf',           ratio:'3 of 26'},
+  {street:'Hillside Road',          captain:'James Owens',    ratio:'5 of 44'},
+  {street:'Road No 7',              captain:'Zama Hlongwane', ratio:'6 of 57'},
+  {street:'Voortrekker Street',     captain:'',               ratio:'1 of 13'},
+  {street:'Second Avenue',          captain:'',               ratio:'2 of 34'},
+  {street:'Orchard Road',           captain:'Anton',          ratio:'0 of 25'},
+  {street:'Hugenote Street',        captain:'',               ratio:'0 of 10'},
 ];
 
 const dqIssues = [
-  {type:'good', text:'Balance check PASSED — computed R41,560.29 matches statement closing balance exactly.'},
-  {type:'good', text:'All 48 bank transactions classified — 0 unmatched credits in April 2026.'},
-  {type:'warn', text:'DO batch total (R19,995) exceeds allocated DO member total (R19,625) by R370. Possible new D/O member not yet in Comprehensive list column C. Review with administrator.'},
-  {type:'warn', text:'Red Hot Bit Consultants MCAA (R3,458) is not in the canonical hardcoded expense list. Classified as Other — verify with administrator.'},
-  {type:'warn', text:'Two DO reversals for WEIERINGS: R170 (CAPITEC bank) and R350 (DISC bank). Member records zeroed for Apr-26 DO.'},
-  {type:'warn', text:'Camera payments for J. O\'Shea and Jimmy Gama — member rows not found in Comprehensive list. Amounts recorded but no row credited.'},
-  {type:'warn', text:'6 members have no plot number assigned. 0 members missing address.'},
-  {type:'warn', text:'Unique plots: formula (Excel) = 202; skill baseline = 343. Likely skill file baseline was from an earlier/different data set. Dashboard uses 202.'},
-];
-
-const streetsData = [
-  {street:'Hillside Road',        plots:22,residents:52,paying:4, not_paying:48,do:963,  eft:0,   rate:7.7},
-  {street:'Fifth Street',         plots:18,residents:42,paying:6, not_paying:36,do:2100, eft:350, rate:14.3},
-  {street:'First Avenue',         plots:22,residents:38,paying:10,not_paying:28,do:3500, eft:700, rate:26.3},
-  {street:'Golf Course Road',     plots:20,residents:36,paying:10,not_paying:26,do:3400, eft:170, rate:27.8},
-  {street:'Nico Pelser Street',   plots:18,residents:34,paying:4, not_paying:30,do:1050, eft:200, rate:11.8},
-  {street:'Road No 7',            plots:14,residents:32,paying:4, not_paying:28,do:900,  eft:600, rate:12.5},
-  {street:'Hillside Road',        plots:0, residents:0, paying:0, not_paying:0, do:0,    eft:0,   rate:0},
-  {street:'Eloff Street',         plots:16,residents:30,paying:7, not_paying:23,do:1473, eft:700, rate:23.3},
-  {street:'De Wet Street',        plots:14,residents:29,paying:8, not_paying:21,do:1626, eft:450, rate:27.6},
-  {street:'Eeufees Street',       plots:11,residents:26,paying:3, not_paying:23,do:713,  eft:170, rate:11.5},
-  {street:'Second Avenue',        plots:11,residents:24,paying:3, not_paying:21,do:700,  eft:400, rate:12.5},
-  {street:'Green Road',           plots:10,residents:22,paying:4, not_paying:18,do:0,    eft:750, rate:18.2},
-  {street:'Nel Street',           plots:12,residents:21,paying:5, not_paying:16,do:0,    eft:970, rate:23.8},
-  {street:'Third Ave.',           plots:9, residents:20,paying:2, not_paying:18,do:350,  eft:200, rate:10.0},
-  {street:'Blignaut Street',      plots:9, residents:18,paying:4, not_paying:14,do:1050, eft:350, rate:22.2},
-  {street:'Orchard Road',         plots:10,residents:17,paying:1, not_paying:16,do:363,  eft:0,   rate:5.9},
-  {street:'Hugenote Street',      plots:8, residents:16,paying:0, not_paying:16,do:0,    eft:0,   rate:0.0},
-  {street:'Voortrekker Street',   plots:9, residents:16,paying:1, not_paying:15,do:350,  eft:0,   rate:6.3},
-  {street:'Fourth Street',        plots:6, residents:14,paying:2, not_paying:12,do:700,  eft:0,   rate:14.3},
-  {street:'Centre Road',          plots:5, residents:13,paying:2, not_paying:11,do:363,  eft:0,   rate:15.4},
-  {street:'Road No 8',            plots:4, residents:10,paying:1, not_paying:9, do:170,  eft:0,   rate:10.0},
-  {street:'Danie Theron Street',  plots:5, residents:8, paying:1, not_paying:7, do:0,    eft:350, rate:12.5},
-  {street:'Short Road',           plots:3, residents:6, paying:1, not_paying:5, do:0,    eft:170, rate:16.7},
-  {street:'Ohenimuri',            plots:2, residents:5, paying:1, not_paying:4, do:363,  eft:0,   rate:20.0},
+  {type:'good', text:'Balance check PASSED — computed R41,560.29 matches statement closing balance exactly. Opening R42,267.90 + credits R35,525.00 − debits R36,232.61 = R41,560.29.'},
+  {type:'good', text:'All 48 bank transactions classified — 0 unmatched membership credits in April 2026.'},
+  {type:'warn', text:'DO batch actual (R19,995) exceeds allocated D/O member total (R19,625) by R370. Possible new D/O member not yet in Comprehensive list column C. Review with administrator.'},
+  {type:'warn', text:'Two DO reversals for WEIERINGS: R170 (Capitec bank) on 16/04 and R350 (DISC bank) on 29/04. Affected member records zeroed for Apr-26 DO.'},
+  {type:'warn', text:'Unmatched camera payments — J. O\'Shea R500 and Jimmy Gama R500 are not in the Comprehensive list. Amounts included in camera total but no member row credited. Add to database or confirm identities.'},
+  {type:'warn', text:'EFT ref "Ndlovu:60 Fifth ST" R350 — surname Ndlovu not in member database; attributed to plot 60 Fifth Street (Sonya Herbst) by address match. Confirm if this is a tenant or different resident.'},
+  {type:'warn', text:'EFT ref "74 NEL STREET" R500 — no member found at Nel Street plot 74; attributed to Golf Course Road plot 74 (Andy Delahunty) by plot-number match. Verify: is this a different member on Nel Street?'},
+  {type:'warn', text:'Red Hot Bit Consultants MCAA R3,458 on 02/04 is not in the canonical hardcoded expense list. Classified as Other. Verify category with administrator.'},
 ];
 
 // ── Build donuts ─────────────────────────────────────────────────────────────
@@ -614,9 +618,8 @@ new Chart(document.getElementById('d1'),{
   options:{...base,cutout:'68%'}
 });
 
-// Plots with payer
 let plotsWithPayer = 0, totalPlots = 202;
-streetsData.forEach(s=>{ if(s.paying>0) plotsWithPayer += Math.min(s.plots, s.paying); });
+streetsData.forEach(s=>{ if(s.paying>0) plotsWithPayer += Math.min(Math.ceil(s.residents*0.5), s.paying); });
 plotsWithPayer = Math.min(plotsWithPayer, totalPlots);
 document.getElementById('plots-paying-n').textContent = plotsWithPayer;
 document.getElementById('plots-paying-leg').innerHTML = `
@@ -630,7 +633,7 @@ new Chart(document.getElementById('d2'),{
 
 new Chart(document.getElementById('d3'),{
   type:'doughnut',
-  data:{datasets:[{data:[10,9],backgroundColor:['#15803d','#b91c1c'],borderWidth:3,borderColor:'#fff'}]},
+  data:{datasets:[{data:[11,7],backgroundColor:['#15803d','#b91c1c'],borderWidth:3,borderColor:'#fff'}]},
   options:{...base,cutout:'68%'}
 });
 
@@ -667,7 +670,10 @@ new Chart(document.getElementById('rv-trend'),{
   type:'bar',
   data:{labels:SM,datasets:[
     {label:'DO',data:doT,backgroundColor:'rgba(29,78,216,0.8)',stack:'s',borderRadius:3},
-    {label:'EFT',data:eftT,backgroundColor:'rgba(21,128,61,0.8)',stack:'s',borderRadius:3}
+    {label:'EFT',data:eftT,backgroundColor:'rgba(21,128,61,0.8)',stack:'s',borderRadius:3},
+    {type:'line',label:'Total',data:doT.map((d,i)=>d+eftT[i]),borderColor:'#b91c1c',
+     borderWidth:2,backgroundColor:'transparent',tension:0.3,pointRadius:2,
+     pointBackgroundColor:'#b91c1c',stack:undefined}
   ]},
   options:{...base,
     scales:{
@@ -677,9 +683,8 @@ new Chart(document.getElementById('rv-trend'),{
   }
 });
 
-// DO / EFT payer count approximations
 const doCountData  = [53,42,40,38,40,37,39,38,40,35,43,54,60,60];
-const eftCountData = [35,24,22,20,21,19,21,20,21,17,23,27,51,18];
+const eftCountData = [35,24,22,20,21,19,21,20,21,17,23,27,51,19];
 new Chart(document.getElementById('rv-do-count'),{
   type:'bar',
   data:{labels:SM,datasets:[{label:'DO payers',data:doCountData,backgroundColor:'rgba(29,78,216,0.8)',borderRadius:3}]},
@@ -694,9 +699,10 @@ new Chart(document.getElementById('rv-eft-count'),{
 // ── Camera tab ────────────────────────────────────────────────────────────────
 const cmg = document.getElementById('cam-members-grid');
 camMembers.forEach(m=>{
-  cmg.innerHTML += `<div class="cam-item">
+  const unresolved = m.street === 'Unresolved';
+  cmg.innerHTML += `<div class="cam-item"${unresolved?' style="opacity:0.7;border-style:dashed"':''}>
     <div class="cam-name">${m.name}</div>
-    <div class="cam-sub">${m.street} &middot; plot ${m.plot}</div>
+    <div class="cam-sub">${m.street} &middot; plot ${m.plot}${unresolved?' &middot; <em>not in database</em>':''}</div>
     <div class="cam-val">R${m.amount.toLocaleString()}</div>
   </div>`;
 });
@@ -704,23 +710,25 @@ const csg = document.getElementById('cam-sponsors-grid');
 camSponsors.forEach(s=>{
   csg.innerHTML += `<div class="cam-sponsor">
     <div class="cam-name" style="font-size:12px;font-weight:600;margin-bottom:6px">${s.name}</div>
-    <div class="cam-val" style="font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--purple)">R${s.amount.toLocaleString()}</div>
+    <div style="font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--purple)">R${s.amount.toLocaleString()}</div>
   </div>`;
 });
 
 // ── Streets tab ───────────────────────────────────────────────────────────────
 const stb = document.getElementById('streets-tbody');
-const stSorted = [...streetsData].filter(s=>s.residents>0).sort((a,b)=>b.residents-a.residents);
-stSorted.forEach(s=>{
+// Already sorted by rate descending in the data array
+streetsData.forEach(s=>{
   const rate = s.rate;
   const rateCol = rate<20?'var(--red)':rate<40?'var(--amber)':'var(--green)';
   const rateBg  = rate<20?'var(--red-l)':rate<40?'var(--amber-l)':'var(--green-l)';
+  const doStr   = s.do_total  > 0 ? 'R'+s.do_total.toLocaleString()  : '—';
+  const eftStr  = s.eft_total > 0 ? 'R'+s.eft_total.toLocaleString() : '—';
   stb.innerHTML += `<tr>
     <td><span class="st-name">${s.street}</span></td>
-    <td><span style="font-family:var(--font-mono);font-size:11px">${s.plots}</span></td>
     <td><span style="font-family:var(--font-mono);font-size:11px">${s.residents}</span></td>
-    <td style="color:#1d4ed8;font-family:var(--font-mono);font-size:11px">${s.paying>0?s.paying:''}</td>
-    <td style="color:#15803d;font-family:var(--font-mono);font-size:11px">${s.eft>0?s.paying:''}</td>
+    <td style="color:#1d4ed8;font-family:var(--font-mono);font-size:11px">${doStr}</td>
+    <td style="color:#15803d;font-family:var(--font-mono);font-size:11px">${eftStr}</td>
+    <td style="font-family:var(--font-mono);font-size:11px;font-weight:600">${s.paying||'—'}</td>
     <td style="color:var(--red);font-family:var(--font-mono);font-size:11px">${s.not_paying}</td>
     <td><span class="rate-badge" style="background:${rateBg};color:${rateCol}">${rate.toFixed(1)}%</span></td>
     <td><div class="bar-track"><div class="bar-fill" style="width:${Math.min(rate,100)}%;background:${rateCol}"></div></div></td>
@@ -728,15 +736,21 @@ stSorted.forEach(s=>{
 });
 
 // ── Captains tab ──────────────────────────────────────────────────────────────
+// Sort by rate descending
+const captainsSorted = [...captains].sort((a,b)=>{
+  const ra = parseInt(a.ratio)||0, ta = parseInt(a.ratio.split(' of ')[1])||1;
+  const rb = parseInt(b.ratio)||0, tb = parseInt(b.ratio.split(' of ')[1])||1;
+  return (rb/tb) - (ra/ta);
+});
 const cg = document.getElementById('captains-grid');
-captains.forEach(c=>{
+captainsSorted.forEach(c=>{
   const parts = c.ratio.split(' of ');
   const paid = parseInt(parts[0])||0;
   const total = parseInt(parts[1])||1;
   const pct = Math.round(paid/total*100);
-  const col = pct===0?'#b91c1c':pct<25?'#b45309':'#15803d';
-  const tag = pct===0?'tag-r':pct<25?'tag-e':'tag-g';
-  const tagTxt = pct===0?'Recruit':pct<25?'Follow up':'On track';
+  const col = pct===0?'#b91c1c':pct<20?'#b45309':'#15803d';
+  const tag = pct===0?'tag-r':pct<20?'tag-e':'tag-g';
+  const tagTxt = pct===0?'Recruit':pct<20?'Follow up':'On track';
   const hasCap = c.captain && c.captain.length > 0;
   cg.innerHTML += `<div class="cap-card">
     <span class="cap-tag ${tag}">${tagTxt}</span>
