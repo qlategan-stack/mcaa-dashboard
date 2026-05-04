@@ -309,21 +309,41 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
   </div>
 
   <!-- Cumulative totals -->
-  <div class="kpi-row cols3">
+  <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
     <div class="kpi kp">
       <div class="kl">Total Camera Income</div>
       <div class="kv clp">R24,850</div>
-      <div class="ks">Cumulative Mar–Apr 2026 · members + sponsors</div>
+      <div class="ks">Cumulative · all months</div>
+    </div>
+    <div class="kpi" style="border-top:3px solid #6b7280">
+      <div class="kl">February 2026</div>
+      <div class="kv" style="color:var(--ink4);font-size:28px">R0</div>
+      <div class="ks">No bank statement on file</div>
     </div>
     <div class="kpi kb">
       <div class="kl">March 2026</div>
       <div class="kv clb">R14,500</div>
-      <div class="ks">10 members (R11,400) + 5 sponsors (R3,100)</div>
+      <div class="ks">10 members · 5 sponsors</div>
     </div>
     <div class="kpi kg">
       <div class="kl">April 2026</div>
       <div class="kv clg">R10,350</div>
-      <div class="ks">8 members (R8,850) + 2 sponsors (R1,500)</div>
+      <div class="ks">8 members · 2 sponsors</div>
+    </div>
+  </div>
+
+  <!-- April 2026 — most recent first -->
+  <div class="cam-month-hdr">April 2026 &mdash; R10,350</div>
+  <div class="card">
+    <div class="ch"><h3>Member Camera Payments</h3><span class="ch-sub">Apr-26 · 8 members · R8,850</span></div>
+    <div class="cb">
+      <div class="cam-grid" id="cam-apr-members-grid"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><h3>Standalone Sponsors</h3><span class="ch-sub">Apr-26 · 2 sponsors · R1,500 · not counted as members</span></div>
+    <div class="cb">
+      <div class="cam-sponsor-grid" id="cam-apr-sponsors-grid"></div>
     </div>
   </div>
 
@@ -342,18 +362,12 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
     </div>
   </div>
 
-  <!-- April 2026 -->
-  <div class="cam-month-hdr">April 2026 &mdash; R10,350</div>
-  <div class="card">
-    <div class="ch"><h3>Member Camera Payments</h3><span class="ch-sub">Apr-26 · 8 members · R8,850</span></div>
+  <!-- February 2026 -->
+  <div class="cam-month-hdr" style="color:var(--ink4)">February 2026 &mdash; no data</div>
+  <div class="card" style="border-style:dashed;opacity:0.6">
+    <div class="ch"><h3>No Camera Payments on File</h3><span class="ch-sub">Feb-26 bank statement not yet processed</span></div>
     <div class="cb">
-      <div class="cam-grid" id="cam-apr-members-grid"></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ch"><h3>Standalone Sponsors</h3><span class="ch-sub">Apr-26 · 2 sponsors · R1,500 · not counted as members</span></div>
-    <div class="cb">
-      <div class="cam-sponsor-grid" id="cam-apr-sponsors-grid"></div>
+      <p style="font-family:var(--font-mono);font-size:11px;color:var(--ink4);padding:8px 0">No bank statement has been loaded for February 2026. Camera payments for this month will appear here once the statement is processed.</p>
     </div>
   </div>
 </div>
