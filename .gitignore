@@ -1,0 +1,15 @@
+# Sensitive member data — never commit
+*.xlsx
+*.xls
+*.pdf
+
+# Temporary files
+*.py
+*.json
+__pycache__/
+*.pyc
+
+# Editor
+.vscode/
+*.DS_Store
+Thumbs.db

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>MCAA Membership Dashboard — [Month Year]</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+/* === PASTE COMPLETE CSS FROM templates/dashboard_styles.css === */
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ============================================================ -->
+<!-- SIDEBAR                                                       -->
+<!-- ============================================================ -->
+<aside class="sidebar">
+  <div class="sb-brand">
+    <h1>MCAA<br>Dashboard</h1>
+    <p>Muckleneuk &amp; Claudius<br>Area Association</p>
+  </div>
+  <div class="sb-date">
+    <span>Reporting period</span>
+    <strong>[DD Month YYYY]</strong>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-section">Analytics</div>
+    <button class="nav-btn active" onclick="go('ov')"><span class="nb-icon">◈</span>Overview</button>
+    <button class="nav-btn" onclick="go('rv')"><span class="nb-icon">◉</span>Revenue</button>
+    <button class="nav-btn" onclick="go('cam')"><span class="nb-icon">◎</span>Camera</button>
+    <button class="nav-btn" onclick="go('st')"><span class="nb-icon">◫</span>Streets</button>
+    <button class="nav-btn" onclick="go('ca')"><span class="nb-icon">◷</span>Captains</button>
+    <div class="sb-section">Financials</div>
+    <button class="nav-btn" onclick="go('ex')"><span class="nb-icon">◻</span>Expenses</button>
+    <div class="sb-section">Reporting</div>
+    <button class="nav-btn" onclick="go('dq')"><span class="nb-icon">◈</span>Data quality</button>
+  </div>
+  <div class="sb-footer"><div class="sb-conf">⬛ Confidential</div></div>
+</aside>
+
+<!-- ============================================================ -->
+<!-- MAIN CONTENT                                                  -->
+<!-- ============================================================ -->
+<main class="main">
+
+  <!-- TAB: OVERVIEW -->
+  <section id="tab-ov" class="panel active">
+    <div class="page-hdr">
+      <div><h2>Overview</h2><p>Membership snapshot — [Month Year]</p></div>
+      <span class="page-hdr-badge">Live</span>
+    </div>
+
+    <!-- KPI ROW -->
+    <div class="kpi-row">
+      <div class="kpi kb">
+        <div class="kl">Total residents</div>
+        <div class="kv clb">[N]</div>
+        <div class="ks">Named members in list</div>
+      </div>
+      <div class="kpi ka">
+        <div class="kl">Unique plots</div>
+        <div class="kv cla">[N]</div>
+        <div class="ks">Distinct plot numbers</div>
+      </div>
+      <div class="kpi kg">
+        <div class="kl">Paying residents</div>
+        <div class="kv clg">[N]</div>
+        <div class="ks">DO + EFT this month</div>
+      </div>
+      <div class="kpi kr">
+        <div class="kl">Not paying</div>
+        <div class="kv clr">[N]</div>
+        <div class="ks">No DO or EFT this month</div>
+      </div>
+    </div>
+
+    <!-- DONUT ROW -->
+    <div class="card-row cols3">
+      <div class="card">
+        <div class="ch"><h3>Residents vs paying</h3></div>
+        <div class="cb"><div class="donut-wrap">
+          <div class="dw">
+            <canvas id="d1" width="110" height="110"></canvas>
+            <div class="dlbl"><div class="dv">[%]</div><div class="ds">paying</div></div>
+          </div>
+          <div class="leg">
+            <div class="lr"><span class="sw" style="background:#15803d"></span>Paying<span class="lr-pct" style="color:#15803d">[%]</span></div>
+            <div class="lr"><span class="sw" style="background:#b91c1c"></span>Not paying<span class="lr-pct" style="color:#b91c1c">[%]</span></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="card">
+        <div class="ch"><h3>Plots with payer</h3></div>
+        <div class="cb"><div class="donut-wrap">
+          <div class="dw">
+            <canvas id="d2" width="110" height="110"></canvas>
+            <div class="dlbl"><div class="dv">[%]</div><div class="ds">covered</div></div>
+          </div>
+          <div class="leg">
+            <div class="lr"><span class="sw" style="background:#15803d"></span>With payer<span class="lr-pct" style="color:#15803d">[%]</span></div>
+            <div class="lr"><span class="sw" style="background:#b91c1c"></span>No payer<span class="lr-pct" style="color:#b91c1c">[%]</span></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="card">
+        <div class="ch"><h3>Captain coverage</h3></div>
+        <div class="cb"><div class="donut-wrap">
+          <div class="dw">
+            <canvas id="d3" width="110" height="110"></canvas>
+            <div class="dlbl"><div class="dv">[%]</div><div class="ds">covered</div></div>
+          </div>
+          <div class="leg">
+            <div class="lr"><span class="sw" style="background:#15803d"></span>Captained<span class="lr-pct" style="color:#15803d">[%]</span></div>
+            <div class="lr"><span class="sw" style="background:#b91c1c"></span>No captain<span class="lr-pct" style="color:#b91c1c">[%]</span></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB: REVENUE -->
+  <section id="tab-rv" class="panel">
+    <div class="page-hdr">
+      <div><h2>Revenue</h2><p>Membership income — DO + EFT (camera shown separately)</p></div>
+      <span class="page-hdr-badge">[Month Year]</span>
+    </div>
+    <div class="kpi-row cols3">
+      <div class="kpi kb">
+        <div class="kl">DO total</div>
+        <div class="kv clb">R[N]</div>
+        <div class="ks">[N] members</div>
+      </div>
+      <div class="kpi kg">
+        <div class="kl">EFT total</div>
+        <div class="kv clg">R[N]</div>
+        <div class="ks">[N] transactions</div>
+      </div>
+      <div class="kpi kr">
+        <div class="kl">Membership total</div>
+        <div class="kv clr">R[N]</div>
+        <div class="ks">DO + EFT this month</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>Monthly trend</h3><span class="ch-sub">DO (blue) · EFT (green) · Total line (red)</span></div>
+      <div class="cb"><div style="height:280px"><canvas id="trend"></canvas></div></div>
+    </div>
+  </section>
+
+  <!-- TAB: CAMERA -->
+  <section id="tab-cam" class="panel">
+    <div class="page-hdr">
+      <div><h2>Camera payments</h2><p>Camera fund contributions — separate from membership revenue</p></div>
+      <span class="page-hdr-badge">Cumulative</span>
+    </div>
+    <div class="cam-total-bar" style="margin-bottom:24px">
+      <span class="cam-total-lbl">Total camera revenue</span>
+      <span class="cam-total-val">R[N]</span>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>Member contributions</h3><span class="ch-sub">[N] paying members</span></div>
+      <div class="cb"><div class="cam-grid">
+        <!-- repeat .cam-item per member -->
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><h3>Sponsors</h3><span class="ch-sub">Non-member contributions</span></div>
+      <div class="cb"><div class="cam-sponsor-grid">
+        <!-- repeat .cam-sponsor per sponsor -->
+      </div></div>
+    </div>
+  </section>
+
+  <!-- TAB: STREETS -->
+  <section id="tab-st" class="panel">
+    <div class="page-hdr">
+      <div><h2>Streets</h2><p>Aggregate by street — pay rate ranking</p></div>
+    </div>
+    <div class="card">
+      <div class="cb"><table class="st-table">
+        <thead><tr>
+          <th>Street</th><th>Plots</th><th>Residents</th><th>Paying</th><th>Not paying</th><th>Rate</th><th></th>
+        </tr></thead>
+        <tbody id="streets-body"></tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- TAB: CAPTAINS -->
+  <section id="tab-ca" class="panel">
+    <div class="page-hdr">
+      <div><h2>Street captains</h2><p>Coverage and follow-up status per street</p></div>
+    </div>
+    <div class="cap-grid" id="cap-grid"></div>
+  </section>
+
+  <!-- TAB: EXPENSES -->
+  <section id="tab-ex" class="panel">
+    <div class="page-hdr">
+      <div><h2>Expenses</h2><p>Outgoing transactions — [Month Year]</p></div>
+      <span class="page-hdr-badge">R[total] outgoing</span>
+    </div>
+    <div class="card">
+      <div class="cb"><table class="exp-table">
+        <thead><tr>
+          <th>Date</th><th>Reference</th><th>Category</th><th style="text-align:right">Amount</th><th>Notes</th>
+        </tr></thead>
+        <tbody id="exp-body"></tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- TAB: DATA QUALITY -->
+  <section id="tab-dq" class="panel">
+    <div class="page-hdr">
+      <div><h2>Data quality</h2><p>Issues, warnings, and clean checks</p></div>
+    </div>
+    <div class="dq-grid" id="dq-grid"></div>
+  </section>
+
+</main>
+</div>
+
+<script>
+/* === PASTE JS FROM templates/dashboard_scripts.js === */
+/* === Then add per-month data arrays and Chart.js initialisation === */
+</script>
+</body>
+</html>
