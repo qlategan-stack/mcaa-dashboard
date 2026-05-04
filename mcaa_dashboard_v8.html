@@ -109,6 +109,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
 .cam-total-bar{background:var(--green-l);border:1px solid var(--green-m);border-radius:5px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
 .cam-total-lbl{font-family:var(--font-mono);font-size:11px;color:var(--green);font-weight:600;}
 .cam-total-val{font-family:var(--font-display);font-size:28px;font-weight:900;color:var(--green);}
+.cam-month-hdr{font-family:var(--font-display);font-size:18px;font-weight:900;color:var(--ink);margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--paper3);letter-spacing:-0.3px;}
 .dq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .dq-item{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:5px;border-left:3px solid;font-size:12px;line-height:1.6;}
 .dq-item.bad{border-color:var(--red);background:var(--red-l);}
@@ -303,45 +304,57 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
 <!-- ══ CAMERA ══ -->
 <div id="tab-cam" class="panel">
   <div class="page-hdr">
-    <div><h2>Camera</h2><p>Camera system contributions — April 2026</p></div>
+    <div><h2>Camera</h2><p>Camera system contributions — cumulative to April 2026</p></div>
     <span class="page-hdr-badge">Separate from membership levy</span>
   </div>
 
+  <!-- Cumulative totals -->
   <div class="kpi-row cols3">
     <div class="kpi kp">
-      <div class="kl">Member Camera Payments</div>
-      <div class="kv clp">R8,850</div>
-      <div class="ks">8 individual members · Apr-26</div>
+      <div class="kl">Total Camera Income</div>
+      <div class="kv clp">R24,850</div>
+      <div class="ks">Cumulative Mar–Apr 2026 · members + sponsors</div>
     </div>
     <div class="kpi kb">
-      <div class="kl">Sponsor Payments</div>
-      <div class="kv clb">R1,500</div>
-      <div class="ks">2 standalone camera sponsors</div>
+      <div class="kl">March 2026</div>
+      <div class="kv clb">R14,500</div>
+      <div class="ks">10 members (R11,400) + 5 sponsors (R3,100)</div>
     </div>
     <div class="kpi kg">
-      <div class="kl">Total Camera Apr-26</div>
+      <div class="kl">April 2026</div>
       <div class="kv clg">R10,350</div>
-      <div class="ks">Combined members + sponsors · April 2026</div>
+      <div class="ks">8 members (R8,850) + 2 sponsors (R1,500)</div>
     </div>
   </div>
 
+  <!-- March 2026 -->
+  <div class="cam-month-hdr">March 2026 &mdash; R14,500</div>
   <div class="card">
-    <div class="ch"><h3>Member Camera Payments</h3><span class="ch-sub">Apr-26 · 8 members · sourced from Bank Statement</span></div>
+    <div class="ch"><h3>Member Camera Payments</h3><span class="ch-sub">Mar-26 · 10 members · R11,400</span></div>
     <div class="cb">
-      <div class="cam-grid" id="cam-members-grid"></div>
+      <div class="cam-grid" id="cam-mar-members-grid"></div>
     </div>
   </div>
-
   <div class="card">
-    <div class="ch"><h3>Standalone Sponsors</h3><span class="ch-sub">Rows 530–534 · not counted as members</span></div>
+    <div class="ch"><h3>Standalone Sponsors</h3><span class="ch-sub">Mar-26 · 5 sponsors · R3,100 · not counted as members</span></div>
     <div class="cb">
-      <div class="cam-sponsor-grid" id="cam-sponsors-grid"></div>
+      <div class="cam-sponsor-grid" id="cam-mar-sponsors-grid"></div>
     </div>
   </div>
 
-  <div class="cam-total-bar">
-    <span class="cam-total-lbl">Total Camera Income — April 2026</span>
-    <span class="cam-total-val">R10,350</span>
+  <!-- April 2026 -->
+  <div class="cam-month-hdr">April 2026 &mdash; R10,350</div>
+  <div class="card">
+    <div class="ch"><h3>Member Camera Payments</h3><span class="ch-sub">Apr-26 · 8 members · R8,850</span></div>
+    <div class="cb">
+      <div class="cam-grid" id="cam-apr-members-grid"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ch"><h3>Standalone Sponsors</h3><span class="ch-sub">Apr-26 · 2 sponsors · R1,500 · not counted as members</span></div>
+    <div class="cb">
+      <div class="cam-sponsor-grid" id="cam-apr-sponsors-grid"></div>
+    </div>
   </div>
 </div>
 
@@ -362,6 +375,7 @@ html,body{height:100%;background:var(--paper);color:var(--ink);font-family:var(-
             <th>Residents</th>
             <th style="color:#1d4ed8">DO (R)</th>
             <th style="color:#15803d">EFT (R)</th>
+            <th style="color:var(--ink2);font-weight:700">Total (R)</th>
             <th>Paying</th>
             <th>Not paying</th>
             <th>Rate</th>
@@ -525,8 +539,28 @@ const SM = ['Mar-25','Apr-25','May-25','Jun-25','Jul-25','Aug-25','Sep-25','Oct-
 const doT  = [18560,14250,13800,12900,13400,12700,13100,12800,13200,11800,14200,18583,19625,19625];
 const eftT = [12400,8200,7600,6800,7200,6400,7100,6600,6900,5800,7800,8790,20320,5180];
 
-// Camera — April 2026 only (sourced from Bank Statement Apr-26 sheet)
-const camMembers = [
+// Camera — March 2026 (sourced from Bank Statement Mar-26 sheet)
+const camMarMembers = [
+  {name:'Dolly Lolwane (Pride Elephant)', street:'Eloff Street',  plot:'57',  amount:600},
+  {name:'Bunty & Lindsay Coryndon-Baker', street:'Eloff Street',  plot:'38',  amount:500},
+  {name:'Miroslaw Benpkavic',             street:'Danie Theron',  plot:'9',   amount:3500},
+  {name:'Mbulelo Mbenenge',               street:'Nel Street',    plot:'100', amount:500},
+  {name:'Tracey Van Niekerk',             street:'Nel Street',    plot:'90',  amount:2500},
+  {name:'Andrew Chapman',                 street:'Nel Street',    plot:'96',  amount:1000},
+  {name:'Philip Kruis',                   street:'Nel Street',    plot:'70',  amount:1000},
+  {name:'K Bland',                        street:'Nel Street',    plot:'88',  amount:500},
+  {name:'Evelyn Keartland',               street:'De Wet Street', plot:'91',  amount:500},
+  {name:'Nazam',                          street:'De Wet Street', plot:'108', amount:300},
+];
+const camMarSponsors = [
+  {name:'Damaskus Projects', amount:500},
+  {name:'Fifth Street',      amount:1000},
+  {name:'Van Niekerk',       amount:600},
+  {name:'Byron Nel Street',  amount:500},
+  {name:'PayShap BLGN15F',   amount:500},
+];
+// Camera — April 2026 (sourced from Bank Statement Apr-26 sheet)
+const camAprMembers = [
   {name:'Leo van Niel',         street:'Eloff Street',    plot:'51',  amount:3500},
   {name:'Ian Long (S. Long)',   street:'Blignaut Street', plot:'10',  amount:2000},
   {name:'Richard Shearer',      street:'Second Avenue',   plot:'40',  amount:1000},
@@ -536,9 +570,9 @@ const camMembers = [
   {name:'James Owens',          street:'Golf Course Road',plot:'60',  amount:500},
   {name:'Terry Shapiro',        street:'Danie Theron',    plot:'82',  amount:350},
 ];
-const camSponsors = [
-  {name:'Fifth Street',  amount:1000},
-  {name:'BlgN15F',       amount:500},
+const camAprSponsors = [
+  {name:'Fifth Street', amount:1000},
+  {name:'BlgN15F',      amount:500},
 ];
 
 const expenses = [
@@ -697,22 +731,30 @@ new Chart(document.getElementById('rv-eft-count'),{
 });
 
 // ── Camera tab ────────────────────────────────────────────────────────────────
-const cmg = document.getElementById('cam-members-grid');
-camMembers.forEach(m=>{
-  const unresolved = m.street === 'Unresolved';
-  cmg.innerHTML += `<div class="cam-item"${unresolved?' style="opacity:0.7;border-style:dashed"':''}>
-    <div class="cam-name">${m.name}</div>
-    <div class="cam-sub">${m.street} &middot; plot ${m.plot}${unresolved?' &middot; <em>not in database</em>':''}</div>
-    <div class="cam-val">R${m.amount.toLocaleString()}</div>
-  </div>`;
-});
-const csg = document.getElementById('cam-sponsors-grid');
-camSponsors.forEach(s=>{
-  csg.innerHTML += `<div class="cam-sponsor">
-    <div class="cam-name" style="font-size:12px;font-weight:600;margin-bottom:6px">${s.name}</div>
-    <div style="font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--purple)">R${s.amount.toLocaleString()}</div>
-  </div>`;
-});
+function renderCamMembers(data, gridId){
+  const g = document.getElementById(gridId);
+  data.forEach(m=>{
+    const unresolved = m.street === 'Unresolved';
+    g.innerHTML += `<div class="cam-item"${unresolved?' style="opacity:0.7;border-style:dashed"':''}>
+      <div class="cam-name">${m.name}</div>
+      <div class="cam-sub">${m.street} &middot; plot ${m.plot}${unresolved?' &middot; <em>not in database</em>':''}</div>
+      <div class="cam-val">R${m.amount.toLocaleString()}</div>
+    </div>`;
+  });
+}
+function renderCamSponsors(data, gridId){
+  const g = document.getElementById(gridId);
+  data.forEach(s=>{
+    g.innerHTML += `<div class="cam-sponsor">
+      <div class="cam-name" style="font-size:12px;font-weight:600;margin-bottom:6px">${s.name}</div>
+      <div style="font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--purple)">R${s.amount.toLocaleString()}</div>
+    </div>`;
+  });
+}
+renderCamMembers(camMarMembers,  'cam-mar-members-grid');
+renderCamSponsors(camMarSponsors,'cam-mar-sponsors-grid');
+renderCamMembers(camAprMembers,  'cam-apr-members-grid');
+renderCamSponsors(camAprSponsors,'cam-apr-sponsors-grid');
 
 // ── Streets tab ───────────────────────────────────────────────────────────────
 const stb = document.getElementById('streets-tbody');
@@ -721,13 +763,16 @@ streetsData.forEach(s=>{
   const rate = s.rate;
   const rateCol = rate<20?'var(--red)':rate<40?'var(--amber)':'var(--green)';
   const rateBg  = rate<20?'var(--red-l)':rate<40?'var(--amber-l)':'var(--green-l)';
-  const doStr   = s.do_total  > 0 ? 'R'+s.do_total.toLocaleString()  : '—';
-  const eftStr  = s.eft_total > 0 ? 'R'+s.eft_total.toLocaleString() : '—';
+  const doStr    = s.do_total  > 0 ? 'R'+s.do_total.toLocaleString()  : '—';
+  const eftStr   = s.eft_total > 0 ? 'R'+s.eft_total.toLocaleString() : '—';
+  const tot      = s.do_total + s.eft_total;
+  const totalStr = tot > 0 ? 'R'+tot.toLocaleString() : '—';
   stb.innerHTML += `<tr>
     <td><span class="st-name">${s.street}</span></td>
     <td><span style="font-family:var(--font-mono);font-size:11px">${s.residents}</span></td>
     <td style="color:#1d4ed8;font-family:var(--font-mono);font-size:11px">${doStr}</td>
     <td style="color:#15803d;font-family:var(--font-mono);font-size:11px">${eftStr}</td>
+    <td style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--ink)">${totalStr}</td>
     <td style="font-family:var(--font-mono);font-size:11px;font-weight:600">${s.paying||'—'}</td>
     <td style="color:var(--red);font-family:var(--font-mono);font-size:11px">${s.not_paying}</td>
     <td><span class="rate-badge" style="background:${rateBg};color:${rateCol}">${rate.toFixed(1)}%</span></td>
